@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlayeFieldCanvasComponent } from './playe-field-canvas.component';
+import { PlayFieldCanvasComponent } from './play-field-canvas.component';
 
-describe('PlayeFieldCanvasComponent', () => {
-  let component: PlayeFieldCanvasComponent;
-  let fixture: ComponentFixture<PlayeFieldCanvasComponent>;
+describe('PlayFieldCanvasComponent', () => {
+  let component: PlayFieldCanvasComponent;
+  let fixture: ComponentFixture<PlayFieldCanvasComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PlayeFieldCanvasComponent ]
+      declarations: [ PlayFieldCanvasComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlayeFieldCanvasComponent);
+    fixture = TestBed.createComponent(PlayFieldCanvasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
