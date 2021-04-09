@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { PlayFieldCanvasComponent } from './play-field-canvas/play-field-canvas.component';
+import { MessageWindowComponent } from './message-window/message-window.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayFieldCanvasComponent
+    PlayFieldCanvasComponent,
+    MessageWindowComponent
   ],
   imports: [
     BrowserModule

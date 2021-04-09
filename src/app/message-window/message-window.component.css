@@ -1,0 +1,8 @@
+div {
+  background-color: lightslategray;
+  position:absolute;
+  bottom:10px;
+  width:100%;
+  height:200px;
+  border:1px solid linen;
+}
