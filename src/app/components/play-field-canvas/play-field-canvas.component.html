@@ -1,3 +1,4 @@
 <canvas>
 </canvas>
-<app-message-window></app-message-window>
+
+<app-message-window *ngIf='showMessageWindow$ | async'></app-message-window>
