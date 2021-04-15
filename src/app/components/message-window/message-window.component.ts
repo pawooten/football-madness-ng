@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../../services/message-service';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-message-window',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageWindowComponent implements OnInit {
 
-  constructor() { }
+  readonly message$: Observable<string>;
+
+  constructor(private messageService: MessageService) {
+    this.message$ = this.messageService.message$;
+  }
 
   ngOnInit() {
   }

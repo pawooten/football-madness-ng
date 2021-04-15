@@ -10,22 +10,10 @@ import { ɵINTERNAL_BROWSER_PLATFORM_PROVIDERS } from '@angular/platform-browser
 })
 export class PlayFieldCanvasComponent implements OnInit {
 
-  private showMessageWindowSubject = new BehaviorSubject<boolean>(false);
-
-  readonly showMessageWindow$ = this.showMessageWindowSubject.asObservable();
-
-  private tick = 0;
+  readonly showMessageWindow$: Observable<boolean>;
 
   constructor(private messageService: MessageService) {
-    const interval = setInterval(() => {
-      this.tick += 1;
-      console.log(this.tick);
-      const showWindow = this.tick % 2 == 0;
-      this.showMessageWindowSubject.next(showWindow);
-      if (this.tick > 6) {
-        clearInterval(interval);
-      }
-    }, 1000);
+    this.showMessageWindow$ = this.messageService.showMessageWindow$;
   }
 
   ngOnInit() {
