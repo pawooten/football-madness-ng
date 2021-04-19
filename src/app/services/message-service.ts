@@ -25,6 +25,11 @@ export class MessageService {
      return 200; // ms
    }
 
+   // The delay between drawing each word in a multi-word message while in fast-forward mode, in milliseconds.
+   get fastForwardMessageWordSpeed(): number {
+     return 50; // ms
+   }
+
    // The separator string between words in a multi-word message.
    get messageWordSeparator(): string {
      return ' ';

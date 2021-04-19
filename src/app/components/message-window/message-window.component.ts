@@ -52,7 +52,7 @@ export class MessageWindowComponent implements OnInit {
   };
 
   constructor(private messageService: MessageService) {
-    this.wordSpeed = this.messageService.messageWordSpeed;
+    this.wordSpeed = this.messageService.fastForwardMessageWordSpeed; //messageWordSpeed;
     this.wordSeparator = this.messageService.messageWordSeparator;
     this.message$ = this.messageSubject.asObservable();
     this.messageService.message$.subscribe(this.observer);

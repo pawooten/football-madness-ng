@@ -1,4 +1,4 @@
 <canvas>
 </canvas>
 
-<app-message-window *ngIf='showMessageWindow$ | async'></app-message-window>
+<app-message-window [ngClass]="{'debugMode' : debugMode$ | async}" *ngIf='showMessageWindow$ | async'></app-message-window>
