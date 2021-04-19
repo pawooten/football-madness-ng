@@ -19,4 +19,14 @@ export class MessageService {
     this.showMessageWindowSubject.next(true);
     console.log(`message service: ${message}`);
    }
+
+   // The delay between drawing each word in a multi-word message, in milliseconds.
+   get messageWordSpeed(): number {
+     return 200; // ms
+   }
+
+   // The separator string between words in a multi-word message.
+   get messageWordSeparator(): string {
+     return ' ';
+   }
 }

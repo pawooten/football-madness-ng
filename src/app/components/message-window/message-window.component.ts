@@ -14,9 +14,12 @@ export class MessageWindowComponent implements OnInit {
   private words: string[];
   private wordIndex: number;
 
+  private readonly wordSpeed: number;
+  private readonly wordSeparator: string;
+
   private observer: NextObserver<string> = {
     next: (value: string) => {
-      this.words = value.split(' ');
+      this.words = value.split(this.wordSeparator);
 
       let burstMessage = ''; // This might be a zero word message / clear.
       if (this.words.length === 1) {
@@ -32,25 +35,25 @@ export class MessageWindowComponent implements OnInit {
       this.wordIndex = 1;
       const interval = setInterval(() => {
         this.wordIndex += 1;
-        if (this.wordIndex === this.words.length - 1) {
+        if (this.wordIndex === this.words.length) {
           // We just incremented to the last word of the message.
-          this.messageSubject.next(this.words.join(''));
+          this.messageSubject.next(this.words.join(' '));
           clearInterval(interval);
-        }
-        else
-        {
+        } else {
           let partialMessage = '';
           for (let i = 0; i < this.wordIndex; i++) {
-            partialMessage += this.words[i] + ' ';
+            partialMessage += this.words[i] + this.wordSeparator;
           }
           this.messageSubject.next(partialMessage);
           // Don't clear the interval yet, we still have more words to draw
         }
-      }, 200);
+      }, this.wordSpeed);
     }
   };
 
   constructor(private messageService: MessageService) {
+    this.wordSpeed = this.messageService.messageWordSpeed;
+    this.wordSeparator = this.messageService.messageWordSeparator;
     this.message$ = this.messageSubject.asObservable();
     this.messageService.message$.subscribe(this.observer);
   }
