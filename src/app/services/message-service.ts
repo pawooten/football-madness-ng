@@ -21,6 +21,22 @@ export class MessageService {
     console.log(`message service: ${message}`);
    }
 
+   sendMessages(messages: string[], delay: number): void {
+    if (!messages || messages.length === 0) {
+      return;
+    }
+    let index = 0;
+    this.send(messages[index]); // display the first message
+    const interval = window.setInterval(() => {
+      index += 1;
+      if (index === messages.length) {
+        window.clearInterval(interval);
+        return;
+      }
+      this.send(messages[index]);
+    }, delay);
+  }
+
    // The delay between drawing each word in a multi-word message, in milliseconds.
    get messageWordSpeed(): number {
      return this.messageSpeed;

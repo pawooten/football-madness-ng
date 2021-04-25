@@ -15,7 +15,6 @@ export class AppComponent {
     '1',
     '...',
     'Welcome to the Championship Game Ladies and Gentlemen!',
-    '',
     'Please stand for the national anthem'
   ];
 private readonly loremIpsum =
@@ -48,13 +47,7 @@ private readonly loremIpsum =
   private index = 0;
 
   constructor(private messageService: MessageService) {
-    // const interval = setInterval(() => {
-    //   this.messageService.send(this.introduction[this.index]);
-    //   this.index += 1;
-    //   if (this.index === this.introduction.length) {
-    //     clearInterval(interval);
-    //   }
-    // }, 200);
-    this.messageService.send(this.loremIpsum);
+    // this.messageService.send(this.loremIpsum);
+    this.messageService.sendMessages(this.introduction, 800);
   }
 }
