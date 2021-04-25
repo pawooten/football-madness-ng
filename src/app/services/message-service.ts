@@ -5,6 +5,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class MessageService {
+  private messageSpeed = MessageSpeed.FastForward;
 
   private showMessageWindowSubject = new BehaviorSubject<boolean>(false);
   readonly showMessageWindow$ = this.showMessageWindowSubject.asObservable();
@@ -22,16 +23,17 @@ export class MessageService {
 
    // The delay between drawing each word in a multi-word message, in milliseconds.
    get messageWordSpeed(): number {
-     return 200; // ms
-   }
-
-   // The delay between drawing each word in a multi-word message while in fast-forward mode, in milliseconds.
-   get fastForwardMessageWordSpeed(): number {
-     return 50; // ms
+     return this.messageSpeed;
    }
 
    // The separator string between words in a multi-word message.
    get messageWordSeparator(): string {
      return ' ';
    }
+}
+export abstract class MessageSpeed {
+  // The delay between drawing each word in a multi-word message while in normal mode, in milliseconds.
+  public static readonly Normal = 200;
+   // The delay between drawing each word in a multi-word message while in fast forward mode, in milliseconds.
+   public static readonly FastForward = 50;
 }
