@@ -5,7 +5,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class MessageService {
-  private messageSpeed = MessageSpeed.FastForward;
+  private messageSpeed = MessageSpeed.Normal;
 
   private showMessageWindowSubject = new BehaviorSubject<boolean>(false);
   readonly showMessageWindow$ = this.showMessageWindowSubject.asObservable();
