@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Web437 IBM VGA 9x16-2x";
+  src: url(../src/assets/fonts/Web437_IBM_VGA_9x16-2x.woff);
+}
+* {
+  font-family: "Web437 IBM VGA 9x16-2x";
+}
